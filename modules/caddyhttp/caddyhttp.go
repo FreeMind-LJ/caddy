@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
+	"github.com/freemind-lj/caddy/v2"
 )
 
 func init() {

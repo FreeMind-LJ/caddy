@@ -23,12 +23,35 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
+	"crypto/tls"
+	
+	quicconn "github.com/zhangjs/quic-conn"
+
 )
+
+
+func GetCertificatePaths() (string, string) {
+	return "/home/lujb/go/caddy/lj2.com.crt", "/home/lujb/go/caddy/lj2.com.key"
+	//return path.Join(certPath, "cert.pem"), path.Join(certPath, "priv.key")
+}
+
+// GetTLSConfig returns a tls config for quic.clemente.io
+func GetTLSConfig() (*tls.Config, error) {
+	cert, err := tls.LoadX509KeyPair(GetCertificatePaths())
+	if err != nil {
+        return nil, err
+	}
+	return &tls.Config{
+		Certificates: []tls.Certificate{cert},
+		NextProtos:   []string{"rtmp-over-quic", "wq-vvv-01"},
+	}, nil
+}
 
 // Listen returns a listener suitable for use in a Caddy module.
 // Always be sure to close listeners when you are done with them.
 func Listen(network, addr string) (net.Listener, error) {
 	lnKey := network + "/" + addr
+	
 
 	listenersMu.Lock()
 	defer listenersMu.Unlock()
@@ -46,7 +69,12 @@ func Listen(network, addr string) (net.Listener, error) {
 	}
 
 	// or, create new one and save it
-	ln, err := net.Listen(network, addr)
+	//ln, err := net.Listen(network, addr)
+	tlsConf, err := GetTLSConfig()
+	if err != nil {
+		return nil, err
+    }
+	ln, err := quicconn.Listen(network, addr, tlsConf)
 	if err != nil {
 		return nil, err
 	}

@@ -22,9 +22,9 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
+	"github.com/freemind-lj/caddy/v2"
+	"github.com/freemind-lj/caddy/v2/caddyconfig/caddyfile"
+	"github.com/freemind-lj/caddy/v2/modules/caddyhttp"
 	"github.com/caddyserver/certmagic"
 )
 
@@ -365,7 +365,7 @@ func (a Address) Key() string {
 
 // lowerExceptPlaceholders lowercases s except within
 // placeholders (substrings in non-escaped '{ }' spans).
-// See https://github.com/caddyserver/caddy/issues/3264
+// See https://github.com/freemind-lj/caddy/issues/3264
 func lowerExceptPlaceholders(s string) string {
 	var sb strings.Builder
 	var escaped, inPlaceholder bool

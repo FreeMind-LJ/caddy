@@ -73,7 +73,7 @@ var defaultCipherSuitesWithoutAESNI = []uint16{
 // getOptimalDefaultCipherSuites returns an appropriate cipher
 // suite to use depending on the hardware support for AES.
 //
-// See https://github.com/caddyserver/caddy/issues/1674
+// See https://github.com/freemind-lj/caddy/issues/1674
 func getOptimalDefaultCipherSuites() []uint16 {
 	if cpuid.CPU.AesNi() {
 		return defaultCipherSuitesWithAESNI

@@ -23,8 +23,8 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/caddyserver/caddy/v2"
-	caddycmd "github.com/caddyserver/caddy/v2/cmd"
+	"github.com/freemind-lj/caddy/v2"
+	caddycmd "github.com/freemind-lj/caddy/v2/cmd"
 	"golang.org/x/crypto/bcrypt"
 	"golang.org/x/crypto/scrypt"
 	"golang.org/x/crypto/ssh/terminal"

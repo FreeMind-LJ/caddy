@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/caddyserver/caddy/v2/caddytest"
+	"github.com/freemind-lj/caddy/v2/caddytest"
 )
 
 func TestCaddyfileAdaptToJSON(t *testing.T) {

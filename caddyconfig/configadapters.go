@@ -18,7 +18,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/caddyserver/caddy/v2"
+	"github.com/freemind-lj/caddy/v2"
 )
 
 // Adapter is a type which can adapt a configuration to Caddy JSON.
@@ -120,7 +120,7 @@ func GetAdapter(name string) Adapter {
 // adapter into a Caddy module, which has the benefit of being
 // counted with other modules, even though they do not
 // technically extend the Caddy configuration structure.
-// See caddyserver/caddy#3132.
+// See freemind-lj/caddy#3132.
 type adapterModule struct {
 	name string
 	Adapter

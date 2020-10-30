@@ -17,11 +17,11 @@ package encode
 import (
 	"fmt"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
-	"github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
+	"github.com/freemind-lj/caddy/v2"
+	"github.com/freemind-lj/caddy/v2/caddyconfig"
+	"github.com/freemind-lj/caddy/v2/caddyconfig/caddyfile"
+	"github.com/freemind-lj/caddy/v2/caddyconfig/httpcaddyfile"
+	"github.com/freemind-lj/caddy/v2/modules/caddyhttp"
 )
 
 func init() {

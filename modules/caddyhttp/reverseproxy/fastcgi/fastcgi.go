@@ -26,12 +26,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp/reverseproxy"
-	"github.com/caddyserver/caddy/v2/modules/caddytls"
+	"github.com/freemind-lj/caddy/v2/modules/caddyhttp"
+	"github.com/freemind-lj/caddy/v2/modules/caddyhttp/reverseproxy"
+	"github.com/freemind-lj/caddy/v2/modules/caddytls"
 	"go.uber.org/zap"
 
-	"github.com/caddyserver/caddy/v2"
+	"github.com/freemind-lj/caddy/v2"
 )
 
 func init() {

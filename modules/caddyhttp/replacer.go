@@ -37,8 +37,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/modules/caddytls"
+	"github.com/freemind-lj/caddy/v2"
+	"github.com/freemind-lj/caddy/v2/modules/caddytls"
 )
 
 // NewTestReplacer creates a replacer for an http.Request

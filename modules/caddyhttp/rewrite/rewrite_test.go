@@ -18,7 +18,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/caddyserver/caddy/v2"
+	"github.com/freemind-lj/caddy/v2"
 )
 
 func TestRewrite(t *testing.T) {

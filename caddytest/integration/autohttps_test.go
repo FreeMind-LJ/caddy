@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/caddyserver/caddy/v2/caddytest"
+	"github.com/freemind-lj/caddy/v2/caddytest"
 )
 
 func TestAutoHTTPtoHTTPSRedirects(t *testing.T) {

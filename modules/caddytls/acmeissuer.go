@@ -23,9 +23,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
+	"github.com/freemind-lj/caddy/v2"
+	"github.com/freemind-lj/caddy/v2/caddyconfig"
+	"github.com/freemind-lj/caddy/v2/caddyconfig/caddyfile"
 	"github.com/caddyserver/certmagic"
 	"github.com/mholt/acmez"
 	"github.com/mholt/acmez/acme"

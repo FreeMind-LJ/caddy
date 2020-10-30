@@ -18,8 +18,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
+	"github.com/freemind-lj/caddy/v2/caddyconfig/httpcaddyfile"
+	"github.com/freemind-lj/caddy/v2/modules/caddyhttp"
 )
 
 func init() {

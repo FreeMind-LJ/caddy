@@ -31,8 +31,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
+	"github.com/freemind-lj/caddy/v2"
+	"github.com/freemind-lj/caddy/v2/caddyconfig"
 	"github.com/caddyserver/certmagic"
 	"go.uber.org/zap"
 )
@@ -462,14 +462,14 @@ func moveStorage() {
 		zap.String("new_dir", newDataDir))
 
 	logger.Info("beginning one-time data directory migration",
-		zap.String("details", "https://github.com/caddyserver/caddy/issues/2955"))
+		zap.String("details", "https://github.com/freemind-lj/caddy/issues/2955"))
 
 	// if new data directory exists, avoid auto-migration as a conservative safety measure
 	_, err = os.Stat(newDataDir)
 	if !os.IsNotExist(err) {
 		logger.Error("new data directory already exists; skipping auto-migration as conservative safety measure",
 			zap.Error(err),
-			zap.String("instructions", "https://github.com/caddyserver/caddy/issues/2955#issuecomment-570000333"))
+			zap.String("instructions", "https://github.com/freemind-lj/caddy/issues/2955#issuecomment-570000333"))
 		return
 	}
 
@@ -477,7 +477,7 @@ func moveStorage() {
 	err = os.MkdirAll(filepath.Dir(newDataDir), 0700)
 	if err != nil {
 		logger.Error("unable to make new datadirectory - follow link for instructions",
-			zap.String("instructions", "https://github.com/caddyserver/caddy/issues/2955#issuecomment-570000333"),
+			zap.String("instructions", "https://github.com/freemind-lj/caddy/issues/2955#issuecomment-570000333"),
 			zap.Error(err))
 		return
 	}
@@ -487,10 +487,10 @@ func moveStorage() {
 	err = os.Rename(oldDataDir, newDataDir)
 	if err != nil {
 		logger.Error("new data directory already exists; skipping auto-migration as conservative safety measure - follow link for instructions",
-			zap.String("instructions", "https://github.com/caddyserver/caddy/issues/2955#issuecomment-570000333"),
+			zap.String("instructions", "https://github.com/freemind-lj/caddy/issues/2955#issuecomment-570000333"),
 			zap.Error(err))
 	}
 
 	logger.Info("successfully completed one-time migration of data directory",
-		zap.String("details", "https://github.com/caddyserver/caddy/issues/2955"))
+		zap.String("details", "https://github.com/freemind-lj/caddy/issues/2955"))
 }

@@ -21,11 +21,11 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig"
-	caddycmd "github.com/caddyserver/caddy/v2/cmd"
-	"github.com/caddyserver/caddy/v2/modules/caddyhttp"
-	caddytpl "github.com/caddyserver/caddy/v2/modules/caddyhttp/templates"
+	"github.com/freemind-lj/caddy/v2"
+	"github.com/freemind-lj/caddy/v2/caddyconfig"
+	caddycmd "github.com/freemind-lj/caddy/v2/cmd"
+	"github.com/freemind-lj/caddy/v2/modules/caddyhttp"
+	caddytpl "github.com/freemind-lj/caddy/v2/modules/caddyhttp/templates"
 	"github.com/caddyserver/certmagic"
 )
 

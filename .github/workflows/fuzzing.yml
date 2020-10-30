@@ -26,7 +26,7 @@ jobs:
 
     - name: Download go-fuzz tools and the Fuzzit CLI, move Fuzzit CLI to GOBIN
       # If we decide we need to prevent this from running on forks, we can use this line:
-      # if: github.repository == 'caddyserver/caddy'
+      # if: github.repository == 'freemind-lj/caddy'
       run: |
 
         go get -v github.com/dvyukov/go-fuzz/go-fuzz github.com/dvyukov/go-fuzz/go-fuzz-build

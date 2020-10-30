@@ -15,8 +15,8 @@
 package filestorage
 
 import (
-	"github.com/caddyserver/caddy/v2"
-	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
+	"github.com/freemind-lj/caddy/v2"
+	"github.com/freemind-lj/caddy/v2/caddyconfig/caddyfile"
 	"github.com/caddyserver/certmagic"
 )
 
