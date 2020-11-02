@@ -49,7 +49,7 @@ func GetTLSConfig() (*tls.Config, error) {
 
 // Listen returns a listener suitable for use in a Caddy module.
 // Always be sure to close listeners when you are done with them.
-func Listen(network, addr string) (net.Listener, error) {
+func Listen(network, addr, proto string) (net.Listener, error) {
 	lnKey := network + "/" + addr
 	
 
@@ -69,14 +69,17 @@ func Listen(network, addr string) (net.Listener, error) {
 	}
 
 	// or, create new one and save it
-	//ln, err := net.Listen(network, addr)
-	tlsConf, err := GetTLSConfig()
-	if err != nil {
-		return nil, err
-    }
-	ln, err := quicconn.Listen(network, addr, tlsConf)
-	if err != nil {
-		return nil, err
+	if proto == "quic" {
+		tlsConf, err := GetTLSConfig()
+	    if err != nil {
+		    return nil, err
+        }
+	    ln, err := quicconn.Listen(network, addr, tlsConf)
+	    if err != nil {
+		    return nil, err
+	    }
+	} else {
+		ln, err := net.Listen(network, addr)
 	}
 
 	// make sure to start its usage counter at 1

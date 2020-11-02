@@ -243,7 +243,7 @@ func replaceAdmin(cfg *Config) error {
 
 	handler := adminConfig.newAdminHandler(addr)
 
-	ln, err := Listen(addr.Network, addr.JoinHostPort(0))
+	ln, err := Listen(addr.Network, addr.JoinHostPort(0), "")
 	if err != nil {
 		return err
 	}
