@@ -78,21 +78,34 @@ func Listen(network, addr, proto string) (net.Listener, error) {
 	    if err != nil {
 		    return nil, err
 	    }
+	    // make sure to start its usage counter at 1
+	    lnGlobal := &globalListener{usage: 1, ln: ln}
+	    listeners[lnKey] = lnGlobal
+
+	    return &fakeCloseListener{
+		    usage:      &lnGlobal.usage,
+		    deadline:   &lnGlobal.deadline,
+		    deadlineMu: &lnGlobal.deadlineMu,
+		    key:        lnKey,
+		    Listener:   ln,
+	    }, nil
 	} else {
 		ln, err := net.Listen(network, addr)
-	}
+	    if err != nil {
+		    return nil, err
+	    }
+	    // make sure to start its usage counter at 1
+	    lnGlobal := &globalListener{usage: 1, ln: ln}
+	    listeners[lnKey] = lnGlobal
 
-	// make sure to start its usage counter at 1
-	lnGlobal := &globalListener{usage: 1, ln: ln}
-	listeners[lnKey] = lnGlobal
-
-	return &fakeCloseListener{
-		usage:      &lnGlobal.usage,
-		deadline:   &lnGlobal.deadline,
-		deadlineMu: &lnGlobal.deadlineMu,
-		key:        lnKey,
-		Listener:   ln,
-	}, nil
+	    return &fakeCloseListener{
+		    usage:      &lnGlobal.usage,
+		    deadline:   &lnGlobal.deadline,
+		    deadlineMu: &lnGlobal.deadlineMu,
+		    key:        lnKey,
+		    Listener:   ln,
+	    }, nil
+    }
 }
 
 // ListenPacket returns a net.PacketConn suitable for use in a Caddy module.
